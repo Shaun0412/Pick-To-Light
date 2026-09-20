@@ -2,6 +2,7 @@
 #include "xc.h"
 #include "keypad.h"
 
+#define _XTAL_FREQ 20000000
 
 void digital_keypad_init()
 {

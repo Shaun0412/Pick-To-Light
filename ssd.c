@@ -37,9 +37,9 @@ void display(unsigned char array[])
 
 
 }
+/*==================================EXTRAS=========================================*/
 
-
-void display_partially(unsinged char array[],int size)
+void display_partially(unsigned char array[],int size)
 {
     for(unsigned char i = 0;i<size;i++)
     {
@@ -48,4 +48,15 @@ void display_partially(unsinged char array[],int size)
         SSD_CONTROL_PORT |= (4<<i);
         delay(1);    
     }
+}
+
+void print_number_on_ssd(unsigned char number)
+{
+    unsigned char ssd_display_buf[4];
+    ssd_display_buf[0] = ssd_numbers[(number / 1000) % 10];
+    ssd_display_buf[1] = ssd_numbers[(number / 100) % 10];
+    ssd_display_buf[2] = ssd_numbers[(number / 10) % 10];
+    ssd_display_buf[3] = ssd_numbers[number % 10];
+    display(ssd_display_buf);
+
 }

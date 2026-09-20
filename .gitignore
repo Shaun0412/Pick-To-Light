@@ -3,3 +3,5 @@
 nbproject
 Dist
 Build
+/build/
+/dist/
