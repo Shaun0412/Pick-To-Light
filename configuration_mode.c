@@ -7,6 +7,8 @@
 
 #define UPDATE_STOCK 10
 #define UPDATE_NODE_ID 11
+
+extern unsigned char my_port_id;
 unsigned char ssd_message_update_stock[] = {0x3E,0x40,0x6D,0x78};
 unsigned char ssd_message_node_id_update[] = {0x54,0x40,0x10,0x5E};
 
@@ -124,6 +126,7 @@ void update_node_id()
         {
             eeprom_write(NODE_ID_CHANGED_MAGICSTRING_ADDR,NODE_ID_CHANGED_IDENTIFICATION);
             eeprom_write(EEPROM_NODEID_ADDRESS,new_node_id);
+            my_port_id = new_node_id;
             return;
         }
         else if(key == MODE)
